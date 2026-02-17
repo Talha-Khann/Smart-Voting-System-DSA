@@ -1,0 +1,103 @@
+/* --- Global Reset & Background --- */
+body, html {
+    margin: 0; padding: 0; height: 100%; width: 100%;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: radial-gradient(circle, #1e3c72 0%, #2a5298 100%);
+    color: #333; overflow: hidden;
+}
+
+.screen {
+    height: 100vh; width: 100vw;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* --- Top Status Bar --- */
+.top-bar {
+    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.5);
+    color: white; padding: 10px; text-align: center; font-size: 0.9rem; z-index: 1000;
+}
+
+/* --- Main Glass Cards --- */
+.hero-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px; border-radius: 30px;
+    width: 90%; max-width: 550px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.big { max-width: 800px; }
+.wide { max-width: 950px; padding: 20px 40px; } /* Slightly tighter for Live view */
+
+/* --- Titles & Highlights --- */
+.main-title { font-size: 2.5rem; color: #1e3c72; line-height: 1.2; }
+.highlight { color: #007bff; font-weight: 800; text-transform: uppercase; }
+.station-banner { background: #e7f1ff; padding: 10px; border-radius: 10px; color: #1e3c72; }
+
+/* --- Buttons --- */
+.mega-btn {
+    width: 100%; padding: 18px; border-radius: 15px; border: none;
+    font-size: 1.2rem; font-weight: 800; cursor: pointer;
+    background: #007bff; color: white; transition: 0.3s;
+}
+.mega-btn.short { width: 60%; margin: 15px auto; display: block; }
+.mega-btn.blue { background: #007bff; }
+.mega-btn.green { background: #28a745; }
+.mega-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
+
+.back-to-menu-btn {
+    background: transparent; border: 2px solid #007bff; color: #007bff;
+    padding: 12px; border-radius: 12px; font-weight: bold;
+    cursor: pointer; margin-top: 15px; width: 100%; transition: 0.3s;
+}
+.back-to-menu-btn:hover { background: #007bff; color: white; }
+
+/* --- Forms & Inputs --- */
+.giant-select {
+    width: 100%; padding: 18px; font-size: 1.1rem; border-radius: 15px;
+    margin: 15px 0; border: 2px solid #007bff; outline: none;
+}
+.mid-input {
+    width: 48%; padding: 15px; margin: 10px 1%; border-radius: 12px;
+    border: 1px solid #ccc; box-sizing: border-box;
+}
+
+/* --- Menu Hub --- */
+.menu-container {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px;
+}
+.menu-box {
+    background: #f8f9fa; padding: 30px 10px; border-radius: 20px;
+    cursor: pointer; transition: 0.4s; border-bottom: 4px solid #007bff;
+}
+.menu-box:hover { background: #007bff; color: white; transform: translateY(-10px); }
+.m-icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+/* --- Candidate Grid --- */
+.symbol-grid-large { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+.symbol-item {
+    background: #eee; padding: 15px; border-radius: 15px; cursor: pointer; transition: 0.3s;
+}
+.symbol-item:hover { background: #ddd; }
+.symbol-item.selected { background: #007bff; color: white; transform: scale(1.05); }
+
+/* --- Results & Leaderboard (REDUCED SIZE FOR LIVE SERVER) --- */
+.chart-container { 
+    height: 220px; /* Shortened to fit button */
+    width: 100%; background: white; 
+    border-radius: 20px; padding: 8px; margin-bottom: 10px; 
+}
+.row {
+    display: flex; justify-content: space-between; padding: 8px 25px; /* Thinner rows */
+    margin-bottom: 6px; border-radius: 12px; font-weight: bold;
+}
+.row-pti { border-left: 10px solid #FFD700; background: #fffdf0; }
+.row-pmln { border-left: 10px solid #0056b3; background: #f0f5ff; }
+.row-ppp { border-left: 10px solid #ff0000; background: #fff0f0; }
+.row-ind { border-left: 10px solid #28a745; background: #f0fff4; }
+
+.glow-msg {
+    padding: 10px; background: #fff3cd; color: #856404;
+    border-radius: 10px; font-weight: bold; margin: 8px 0; font-size: 0.9rem;
+}
+
+.hidden { display: none !important; }

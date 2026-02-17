@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Voting System - NA-46</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div id="backendStatus" class="top-bar">System Status: Scanning...</div>
+
+    <section id="page-connect" class="screen">
+        <div class="hero-card animate__animated animate__zoomIn">
+            <div class="pulse-ring">🗳️</div>
+            <h1>Smart Voting System</h1>
+            <p>Government of Pakistan | Election Portal</p>
+            <button class="mega-btn short" onclick="testBackend()">START SYSTEM</button>
+        </div>
+    </section>
+
+    <section id="page-welcome" class="screen hidden">
+        <div class="hero-card big animate__animated animate__fadeIn">
+            <h1 class="main-title">Welcome to <br><span class="highlight">Electronic Voting Machine</span></h1>
+            <div class="input-area">
+                <label>Select Polling Station Location</label>
+                <select id="stationSelect" class="giant-select">
+                    <option value="" disabled selected>-- Choose Your Polling Station --</option>
+                    <option value="0">G-8 Polling Station</option>
+                    <option value="1">G-9 Polling Station</option>
+                    <option value="2">G-10 Polling Station</option>
+                    <option value="3">H-8 Polling Station</option>
+                    <option value="4">H-9 Polling Station</option>
+                    <option value="5">H-10 Polling Station</option>
+                    <option value="6">I-8 Polling Station</option>
+                    <option value="7">I-9 Polling Station</option>
+                    <option value="8">F-8 Polling Station</option>
+                </select>
+            </div>
+            <button class="mega-btn blue" onclick="validateAndProceed()">ENTER DASHBOARD</button>
+        </div>
+    </section>
+
+    <section id="page-menu" class="screen hidden">
+        <div class="hero-card wide animate__animated animate__backInUp">
+            <h2 id="currentStationHead" class="station-banner">---</h2>
+            <div class="menu-container">
+                <div class="menu-box" onclick="showVotePage()">
+                    <div class="m-icon">🗳️</div><span>Cast Vote</span>
+                </div>
+                <div class="menu-box" onclick="liveStatus()">
+                    <div class="m-icon">📊</div><span>Live Status</span>
+                </div>
+                <div class="menu-box" onclick="viewResults()">
+                    <div class="m-icon">🏆</div><span>Results</span>
+                </div>
+                <div class="menu-box" onclick="exitSystem()">
+                    <div class="m-icon">❌</div><span>Exit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-vote" class="screen hidden">
+        <div class="hero-card animate__animated animate__slideInRight">
+            <h2>Digital Ballot Paper</h2>
+            <div class="voter-fields">
+                <input type="text" id="voterID" class="mid-input" placeholder="Enter CNIC">
+                <input type="text" id="voterName" class="mid-input" placeholder="Enter Full Name">
+            </div>
+            <div class="symbol-grid-large">
+                <div class="symbol-item" onclick="selectParty(0, this)">🏏<p>PTI</p></div>
+                <div class="symbol-item" onclick="selectParty(1, this)">🏹<p>PPP</p></div>
+                <div class="symbol-item" onclick="selectParty(2, this)">🦁<p>PML-N</p></div>
+                <div class="symbol-item" onclick="selectParty(3, this)">⚡<p>IND</p></div>
+            </div>
+            <input type="hidden" id="selectedPartyIndex" value="">
+            <button class="mega-btn green" onclick="castVote()">CONFIRM VOTE</button>
+            <button class="back-to-menu-btn" onclick="showPage('page-menu')">Back to Main Menu</button>
+        </div>
+    </section>
+
+    <section id="page-data" class="screen hidden">
+        <div class="hero-card wide animate__animated animate__fadeIn">
+            <h2 id="dataTitle" class="section-title">Data Analytics</h2>
+            <div id="graphWrapper" class="chart-container">
+                <canvas id="voteChart"></canvas>
+            </div>
+            <div id="resultsBoard" class="leaderboard-container"></div>
+            <div id="leaderMessage" class="glow-msg"></div>
+            <button class="mega-btn" onclick="showPage('page-menu')">RETURN TO MENU</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
